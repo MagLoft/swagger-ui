@@ -1,0 +1,152 @@
+  <ul class='operations' >
+    <li class='{{method}} operation' id='{{parentId}}_{{nickname}}'>
+      <div class='heading valign-wrapper'>
+        <a href='#!/{{encodedParentId}}/{{nickname}}' class="http_method toggleOperation">{{method}}</a>
+        <a href='#!/{{encodedParentId}}/{{nickname}}' class="path toggleOperation {{#if deprecated}}deprecated{{/if}}">{{path}}</a>
+        <a href='#!/{{encodedParentId}}/{{nickname}}' class="summary toggleOperation">{{{summary}}}</a>
+      </div>
+      <div class='content' id='{{parentId}}_{{nickname}}_content' style='display:none'>
+        
+        <div class="operation-main">
+          <form accept-charset='UTF-8' class='operation-request sandbox'>
+            <div class="operation-request-content">
+              {{!--{{#oauth}}--}}
+              {{!--<div class="auth">--}}
+              {{!--<span class="api-ic ic-error">{{/oauth}}--}}
+              {{!--{{#each oauth}}--}}
+                {{!--<div class="api_information_panel">--}}
+                {{!--{{#each this}}--}}
+                  {{!--<div title='{{{this.description}}}'>{{this.scope}}</div>--}}
+                {{!--{{/each}}--}}
+                {{!--</div>--}}
+              {{!--{{/each}}--}}
+              {{!--{{#oauth}}</span></div>{{/oauth}}--}}
+              {{!--{{#oauth}}--}}
+              {{!--<div class='access'>--}}
+                {{!--<span class="api-ic ic-off" title="click to authenticate"></span>--}}
+              {{!--</div>--}}
+              {{!--{{/oauth}}--}}
+            </div>
+            
+            {{#if deprecated}}
+              <div class="operation-meta deprecated">
+                <i class="material-icons left">warning</i><span data-sw-translate>Warning: Deprecated</span>
+              </div>
+            {{/if}}
+          
+            {{#if parameters}}
+              <div class="parameters">
+                <table class='fullwidth parameters highlight'>
+                  <tbody class="operation-params"></tbody>
+                </table>
+              </div>
+            {{/if}}
+          
+            <ul class="collapsible" data-collapsible="accordion">              
+              {{#if headers}}
+                <li>
+                  <div class="collapsible-header active"><i class="material-icons">transform</i><span data-sw-translate>Headers</span></div>
+                  <div class="collapsible-body">
+                    <table class="headers">
+                      <thead>
+                        <tr>
+                          <th style="width: 100px; max-width: 100px" data-sw-translate>Header</th>
+                          <th style="width: 310px; max-width: 310px" data-sw-translate>Description</th>
+                          <th style="width: 200px; max-width: 200px" data-sw-translate>Type</th>
+                          <th style="width: 320px; max-width: 320px" data-sw-translate>Other</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each headers}}
+                        <tr>
+                          <td>{{@key}}</td>
+                          <td>{{this.description}}</td>
+                          <td>{{this.type}}</td>
+                          <td>{{this.other}}</td>
+                        </tr>
+                        {{/each}}
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+              {{/if}}
+              
+              {{#if responseMessages}}
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">adjust</i>Response Messages</div>
+                  <div class="collapsible-body">
+                    <table class='fullwidth response-messages'>
+                      <thead>
+                        <tr>
+                          <th data-sw-translate>HTTP Status Code</th>
+                          <th data-sw-translate>Reason</th>
+                          <th data-sw-translate>Response Model</th>
+                          <th data-sw-translate>Headers</th>
+                        </tr>
+                      </thead>
+                      <tbody class="operation-status"></tbody>
+                    </table>
+                  </div>
+                </li>
+              {{/if}}
+              
+              {{#if type}}
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">filter_drama</i><span data-sw-translate>Response Class</span>&nbsp;(<span data-sw-translate>Status</span> {{successCode}})</div>
+                  <div class="collapsible-body">
+                    <div class="response-class">
+                      {{#if successDescription}}<div class="markdown">{{{successDescription}}}</div>{{/if}}
+                      <p><div class="model-signature"></div></p>
+                    </div>
+                  </div>
+                </li>
+              {{/if}}
+              
+              {{#if description}}
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">info_outline</i><span data-sw-translate>Implementation Notes</span></div>
+                  <div class="collapsible-body markdown">{{{description}}}</div>
+                </li>
+              {{/if}}
+              
+              {{#if security}}
+                <li>
+                  <div class="collapsible-header disabled"><i class="material-icons">lock_outline</i><span data-sw-translate>Authorization</span></div>
+                  <!--<div class="collapsible-body">
+                    <div class='authorize-wrapper authorize-wrapper_operation'></div>
+                  </div>-->
+                </li>
+              {{/if}}
+            </ul>
+          </form>
+          
+          <div class='operation-result response' style='display:none'>
+            <h4 class='curl'>Curl</h4>
+            <div class='block curl'></div>
+            <h4 data-sw-translate>Request URL</h4>
+            <div class='block request_url'></div>
+            {{#if showRequestHeaders}}
+            <h4 data-sw-translate>Request Headers</h4>
+            <div class='block request_headers'></div>
+            {{/if}}
+            <h4 data-sw-translate>Response Body</h4>
+            <div class='block response_body'></div>
+            <h4 data-sw-translate>Response Code</h4>
+            <div class='block response_code'></div>
+            <h4 data-sw-translate>Response Headers</h4>
+            <div class='block response_headers'></div>
+          </div>
+        </div>
+        
+        <div class="operation-footer">
+          <div class="response-content-type"></div>
+          {{#if isReadOnly}}{{else}}
+            <button class="submit btn" type="submit" name="action"><span data-sw-translate>Try it out!</span><i class="material-icons right">send</i></button>
+            <button class="response_hider btn red" style='display:none'><span data-sw-translate>Hide Response</span><i class="material-icons right">close</i></button>
+            <span class='response_throbber' style='display:none'></span>
+          {{/if}}
+        </div>
+        
+      </div>
+    </li>
+  </ul>

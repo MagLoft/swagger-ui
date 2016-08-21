@@ -1,0 +1,76 @@
+<div class="navbar-fixed">
+  <nav id="header">
+    <div class="nav-wrapper">
+      <a href="#" data-activates="sidebar" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a id="logo" href="http://swagger.io">swagger</a>
+      <div class="spacer"></div>
+      <form id='api_selector'>
+        <div class="input-field">
+          <input placeholder="http://example.com/api" id="input_baseUrl" name="baseurl" type="text" required>
+          <label for="input_baseUrl"><i class="material-icons">search</i></label>
+        </div>
+      </form>
+      <ul class="right">
+        <li><a id="explore" class="header__btn" href="#" data-sw-translate>Explore</a></li>
+        <li id="auth_container"></li>
+      </ul>          
+    </div>
+  </nav>
+</div>
+
+<main>
+  <div id="message-bar" class="swagger-ui-wrap" data-sw-translate>&nbsp;</div>
+  <div id='resources_container'>
+    <div class='authorize-wrapper'></div>
+    <div id='resources'></div>
+  </div>
+</main>
+
+<ul id="sidebar" class="side-nav fixed">
+  {{#if info}}
+    <li class="sidebar-header">
+      {{#if info.contact}}
+        <div class="sidebar-header-left">
+          {{#if info.contact.image_url}}
+            <a href="{{info.contact.url}}"><img class="circle" src="{{info.contact.image_url}}"></a>
+          {{/if}}
+        </div>
+        <div class="sidebar-header-right">
+          {{#if info.contact.name}}
+            <a href="{{info.contact.url}}"><span class="white-text name">{{info.contact.name}}</span></a>
+          {{/if}}
+          {{#if info.contact.email}}
+            <a href="mailto:{{info.contact.email}}?subject={{info.title}}"><span class="white-text email">{{info.contact.email}}</span></a>
+          {{/if}}
+        </div>
+      {{/if}}
+    </li>
+    <li class="subheader">{{info.title}}</li>
+    <li class="info_description markdown">{{info.description}}</li>
+  {{/if}}
+
+  {{#if externalDocs}}
+    <li><a href="{{externalDocs.url}}" target="_blank"><i class="material-icons">send</i>{{externalDocs.description}}</a></li>
+  {{/if}}
+
+  {{#if info.termsOfServiceUrl}}
+    <li><a href="{{info.termsOfServiceUrl}}" target="_blank"><i class="material-icons">gavel</i><span data-sw-translate>Terms of service</span></a></li>
+  {{/if}}
+
+  {{#if info.license}}
+    <li><a href="{{info.license.url}}" target="_blank"><i class="material-icons">lock open</i>{{info.license.name}}</a></li>
+  {{/if}}  
+</ul>
+
+<footer class="page-footer">
+  <div class="footer-copyright">
+    <div class="container">
+      © 2016 swagger.io
+      {{#if validatorUrl}}<a class="right" target="_blank" href="{{validatorUrl}}/debug?url={{url}}"><img id="validator" src="{{validatorUrl}}?url={{url}}"></a>{{/if}}
+      <a class="right" href="{{basePath}}" target="_blank">
+        <span style="font-variant: small-caps">base url</span>: {{basePath}}
+        {{#if info.version}}, <span style="font-variant: small-caps" data-sw-translate>api version</span>: {{info.version}}{{/if}}
+      </a>
+    </div>
+  </div>
+</footer>

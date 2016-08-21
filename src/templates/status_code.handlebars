@@ -1,0 +1,16 @@
+<td class='code'>{{code}}</td>
+<td class="markdown">{{{message}}}</td>
+<td><div class="model-signature"></div></td>
+<td class="headers">
+  <table>
+    <tbody>
+      {{#each headers}}
+      <tr>
+        <td>{{@key}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.type}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</td>

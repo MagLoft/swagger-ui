@@ -1,0 +1,86 @@
+.model-signature { 
+  overflow: hidden; 
+  
+  span.propType {
+    color: #3286d4;
+  }
+  
+  .signature-panel {
+    border: 1px solid #EEE;
+    background: #F5F5F5;
+  
+    .snippet, .description {
+      color: #999999;
+      padding: 8px;
+      font-size: 11px;
+      line-height: 14px;
+      border-left: 4px solid #EEE;
+    }
+  
+    .snippet {
+      display: none;
+      background: #FAFAFA;
+      color: #666;
+    
+      pre {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  
+    .description {
+      & > .strong {
+        font-weight: bold;
+        color: #EE6E73;
+      }
+    
+      & > div {
+        padding-left: 8px;
+      
+      
+        span.propName {
+          color: #171717;
+          min-width: 53px;
+          display: inline-block;
+          text-align: right;
+          margin-right: 2px;
+        }
+      }
+    
+      & > .line-break {
+        margin: 4px 0px;
+        border-bottom: 1px solid #E9E9E9;
+      }
+    }
+  
+    .propDesc {
+      display: inline;
+      color: #10A54A;
+      
+      p {
+        display: inline;
+      }
+    }
+  
+    table.optionsWrapper {
+      display: none;
+      position: absolute;
+      background: #FFFFFF;
+      width: initial;
+      padding: 0;
+      color: #171717;
+      box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+    
+      td, th {
+        padding: 4px 8px;
+      }
+    
+      th {
+        background: #EE6E73;
+        color: #FFFFFF;
+        border-radius: 0;
+      }
+    
+    }
+  }
+}

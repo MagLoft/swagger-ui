@@ -1,0 +1,49 @@
+#header {
+  height: 64px;
+  line-height: 64px;
+  box-shadow: none;
+
+  .button-collapse {
+    padding: 0px 0px 0px 20px;
+    height: 64px;
+    line-height: 64px;
+    
+    i {
+      height: 64px;
+      line-height: 64px;
+      font-size: 32px;
+    }
+  }
+  
+  .nav-wrapper {
+    display: flex;
+
+    #logo {
+      line-height: 62px;
+      height: 64px;
+      padding: 0px 20px;
+      font-size: 1.8rem;
+    }
+    
+    div.spacer {
+      flex: 1;
+    }
+    
+    form#api_selector {
+      width: 300px;
+      display: block;
+      position: relative;
+      
+      input {
+        margin-bottom: 0px;
+        font-size: 1rem;
+        padding-left: 40px;
+        box-sizing: border-box;
+        
+        &::-webkit-input-placeholder {
+          color: rgba(255,255,255,0.5);
+        }
+      }
+    }
+  }
+}

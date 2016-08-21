@@ -1,0 +1,21 @@
+<td class='code required'>
+  <div class="param-type">{{{paramType}}}</div>
+  <label for='{{valueId}}'>{{name}}&nbsp;<span class="required-label">*</span></label>
+	{{#if isBody}}
+		{{#if isFile}}
+			<input type="file" name='{{name}}' id='{{valueId}}'/>
+		{{else}}
+			<div class="editor_holder"></div>
+      <textarea class='body-textarea required' name='{{name}}' id="{{valueId}}">{{#if default}}{{default}}{{/if}}</textarea>
+      <div class="parameter-content-type" />
+		{{/if}}
+	{{else}}
+		{{#if isFile}}
+			<input class='parameter' class='required' type='file' name='{{name}}' id='{{valueId}}'/>
+		{{else}}
+      {{#renderTextParam this}}{{/renderTextParam}}
+		{{/if}}
+	{{/if}}
+  <div class="markdown description">{{{description}}}</div>
+</td>
+<td><div class="model-signature"></div></td>

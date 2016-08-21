@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+
+    <!-- start auto template tags -->
+    <!-- end auto template tags -->
+
+    <script type="text/javascript">
+      $(function () {
+
+        var url = window.location.search.match(/url=([^&]+)/);
+        if (url && url.length > 1) {
+          url = decodeURIComponent(url[1]);
+        }else{
+          url = "swagger.json";
+        }
+
+        hljs.configure({
+          highlightSizeThreshold: 5000
+        });
+
+        // Pre load translate...
+        if(window.SwaggerTranslator) {
+          window.SwaggerTranslator.translate();
+        }
+        window.swaggerUi = new SwaggerUi({
+          url: url,
+          supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
+          onComplete: function(swaggerApi, swaggerUi) {
+
+            $('.button-collapse').sideNav({menuWidth: 300});
+            $('ul.tabs').tabs();
+            $('select').material_select();
+            $('.collapsible').collapsible({accordion: false});
+
+            if(typeof initOAuth == "function") {
+              initOAuth({
+              clientId: "your-client-id",
+              clientSecret: "your-client-secret-if-required",
+              realm: "your-realms",
+              appName: "your-app-name",
+              scopeSeparator: " ",
+              additionalQueryStringParams: {}
+              });
+            }
+
+            if(window.SwaggerTranslator) {
+              window.SwaggerTranslator.translate();
+            }
+          },
+          onFailure: function(data) {
+            log("Unable to Load SwaggerUI");
+          },
+          docExpansion: "none",
+          defaultModelRendering: 'schema',
+          showRequestHeaders: true
+        });
+
+        window.swaggerUi.load();
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

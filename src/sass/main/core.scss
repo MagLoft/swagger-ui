@@ -1,0 +1,135 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#header, main, footer {
+  padding-left: 300px;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+thead {
+  border-bottom: 1px solid #EEEEEE;
+}
+
+th {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: top;
+  font-weight: normal;
+}
+
+td {
+  vertical-align: top;
+}
+
+tbody.operation-status {
+  font-size: 11px;
+}
+
+.collapsible {
+  border-top: 1px solid #ddd;
+  border-right: none;
+  border-left: none;
+  margin: 0px;
+  box-shadow: none;
+  
+  .collapsible-header.disabled {
+    pointer-events: none;
+    color: #AAA;
+  }
+  
+  .collapsible-body {
+    padding: 0px 16px;
+    
+    &.markdown {
+      padding: 16px;
+    }
+  }
+}
+
+span.required-label {
+    color: #EE6E73;
+}
+
+@media only screen and (max-width : 992px) { 
+  #header, main, footer {
+    padding-left: 0;
+  }
+  
+  #auth_container {
+    display: none;
+  }
+}
+
+.operation-params  {
+  td {
+    padding: 10px 5px;
+  }
+  
+  td.code {
+    padding: 10px 20px;
+    width: 50%;
+  
+    input.parameter {
+      margin-bottom: 0px;
+      height: 22px;
+    }
+    
+    input.select-dropdown {
+      margin-bottom: 0px;
+    }
+    
+    textarea.body-textarea {
+      font-family: droid sans mono, consolas, monospace, courier new, courier, sans-serif;
+      border: 1px solid #CCCCCC;
+      background: #FFFFFF;
+      padding: 4px 8px;
+      height: 92px;
+      resize: none;
+      font-size: 12px;
+    
+      &:focus {
+        outline: none;
+      }
+    }
+    
+    .markdown.description {
+      font-size: 70%;
+      color: #666;
+      line-height: 20px;
+    }
+    
+    .param-type {
+      display: inline-block;
+      background: #3286d4;
+      color: #FFF;
+      padding: 2px 4px 0px;
+      font-size: 11px;
+      text-transform: uppercase;
+      float: right;
+    }
+  }
+}
+
+img#validator {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+div.editor_holder {
+  display: none;
+  min-width: 200px;
+  margin-bottom: 32px;
+  
+  &.loaded {
+    display: block;
+    height: 128px;
+  }
+}

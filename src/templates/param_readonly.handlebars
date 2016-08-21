@@ -1,0 +1,12 @@
+<td class='code'>
+  <div class="param-type">{{{paramType}}}</div>
+  <label for='{{valueId}}'>{{name}}</label>
+  {{#if isBody}}
+    <textarea class='body-textarea' readonly='readonly' name='{{name}}' id='{{valueId}}'>{{default}}</textarea>
+    <div class="parameter-content-type" />
+  {{else}}
+    {{#if default}}{{default}}{{else}}(empty){{/if}}
+  {{/if}}
+  <div class="markdown description">{{{description}}}</div>
+</td>
+<td><div class="model-signature"></div></td>

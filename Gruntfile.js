@@ -18,7 +18,6 @@ module.exports = (grunt) => {
         'src/vendor/jquery/dist/jquery.min.js',
         'src/vendor/jquery.browser/dist/jquery.browser.min.js',
         'src/vendor/jquery.bbq/jquery.ba-bbq.min.js',
-        'src/lib/jquery.slideto.min.js',
         'src/vendor/lodash/dist/lodash.min.js',
         'src/vendor/js-yaml/dist/js-yaml.min.js',
         'src/vendor/backbone/backbone-min.js',

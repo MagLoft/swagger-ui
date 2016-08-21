@@ -1,0 +1,10 @@
+<div class='card-header'>
+  <span class="card-header-title">
+    <a href='#!/{{id}}' class="toggleEndpointList" data-id="{{id}}">{{name}}</a> {{#summary}} : {{/summary}}{{{summary}}}
+  </span>
+  <a class="toggleEndpointList material-icons" href='#!/{{id}}' id='endpointListTogger_{{id}}' data-id="{{id}}">visibility</a>
+  <a class="collapseResource material-icons" href='#' data-id="{{id}}">list</a>
+  <a class="expandResource material-icons" href='#' data-id="{{id}}">view_list</a>
+  {{#if url}}<a href='{{url}}' data-sw-translate>Raw</a>{{/if}}
+</div>
+<ul class='endpoints' id='{{id}}_endpoint_list' style='display:none'></ul>

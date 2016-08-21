@@ -1,0 +1,143 @@
+ul.operations {  
+  li.operation {
+    transition: margin 500ms;
+    border-bottom: 1px solid #EEE;
+    
+    .heading {
+      display: flex;
+      line-height: 18px;
+      
+      a.http_method {
+        width: 64px;
+        text-align: center;
+        padding: 3px;
+        margin: 10px;
+        color: #FFFFFF;
+        background: #EE6E73;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 18px;
+        border: 1px solid #FFF;
+      }
+    
+      a.path {
+        flex: 1;
+        color: #000000;
+        
+        &.deprecated {
+          text-decoration: line-through;
+        }
+      }
+    
+      a.summary {
+        color: rgba(0,0,0,0.5);
+        padding: 0px 10px;
+      }
+      
+    }
+    
+    &.get a.http_method { background: #0fa5b4; }
+    &.put a.http_method { background: #c5862b; }
+    &.post a.http_method { background: #10a54a; }
+    &.batch a.http_method { background: #0fa5b4; }
+    &.delete a.http_method { background: #A41E22; }
+    
+    &.active {
+      margin-bottom: 16px;
+      
+      a.path {
+        color: #FFFFFF;
+      }
+      a.summary {
+        color: rgba(255,255,255,0.75);
+      }
+      &.get .heading { background: #0fa5b4; }
+      &.put .heading { background: #c5862b; }
+      &.post .heading { background: #10a54a; }
+      &.batch .heading { background: #0fa5b4; }
+      &.delete .heading { background: #A41E22; }
+    }
+    
+    div.authorize-wrapper {
+      display: none;
+      /* @TODO: Implement Authorization Feature */
+    }
+    
+    div.operation-main {
+      @media only screen and (min-width : 1300px) { display: flex; }
+      
+      form.operation-request {
+        transition: all 500ms;
+        @media only screen and (min-width : 1300px) { flex: 2 }
+        
+        div.operation-meta {
+          padding: 20px 0px;
+          
+          i {
+            width: 2rem;
+            font-size: 1.6rem;
+            display: block;
+            float: left;
+            text-align: center;
+            margin-right: 1rem;
+            margin-left: 0.65rem;
+          }
+          
+          &.deprecated {
+            background: #dacccc;
+            color: #774c4c;
+          }
+        }
+      }
+      
+      div.operation-result {
+        font-size: 12px;
+        max-width: 960px;
+        transition: all 500ms;
+        @media only screen and (min-width : 1300px) { flex: 1 }
+        background-color: #F5F5F5;
+        border-left: 1px solid #EEEEEE;
+        color: #000000;
+        padding: 20px;
+      }
+      
+      h4 {
+        font-size: 20px;
+        margin: 0;
+        border-bottom: 1px solid #EEEEEE;
+        padding-bottom: 12px;
+      }
+    }
+    
+    div.operation-footer {
+      padding: 20px 28px;
+      background: #e8ebef;
+      margin: 0;
+      display: flex;
+      border-bottom: 8px solid #d0d6de;
+      
+      .response-content-type {
+        flex: 1;
+        
+        .select-wrapper {
+          max-width: 200px;
+          input.select-dropdown {
+            margin-bottom: 0px;
+          }
+        }
+      }
+      
+      button {
+        margin: 12px 0px 0px 20px;
+      }
+    }
+    
+    .markdown {
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }    
+  }
+}
